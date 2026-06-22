@@ -285,22 +285,17 @@ function initFrameBinding() {
 
 function initHeroTransition() {
   ScrollTrigger.create({
-    trigger: scrollContainer,
+    trigger: heroSection,
     start: "top top",
-    end: "bottom bottom",
+    end: "bottom top",
     scrub: true,
     onUpdate(self) {
       const p = self.progress;
-
-      // Hero fades out fast as scroll begins
-      heroSection.style.opacity = Math.max(0, 1 - p * 18).toString();
-
-      // Canvas reveals via circle wipe
-      const wipeStart = 0.005;
-      const wipeEnd = 0.07;
-      const wipeProgress = Math.max(0, Math.min(1, (p - wipeStart) / (wipeEnd - wipeStart)));
-      const radius = wipeProgress * 150;
-      canvasWrap.style.clipPath = `circle(${radius}% at 50% 50%)`;
+      // Hero fades over first half of scroll-off
+      heroSection.style.opacity = Math.max(0, 1 - p * 2).toString();
+      // Canvas wipes in: complete when hero is 50% off screen
+      const wipeProgress = Math.min(1, p * 2);
+      canvasWrap.style.clipPath = `circle(${wipeProgress * 150}% at 50% 50%)`;
     },
   });
 }
