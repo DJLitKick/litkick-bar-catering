@@ -62,7 +62,7 @@ function drawFrame(index) {
   const ch = window.innerHeight;
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
-  const scale = Math.min(cw / iw, ch / ih) * IMAGE_SCALE;
+  const scale = Math.max(cw / iw, ch / ih) * IMAGE_SCALE;
   const dw = iw * scale;
   const dh = ih * scale;
   const dx = (cw - dw) / 2;
@@ -129,14 +129,12 @@ function loadFrames() {
 function initHeroEntrance() {
   const words = document.querySelectorAll(".hero-heading .word");
   const tagline = document.querySelector(".hero-tagline");
-  const scrollIndicator = document.querySelector(".hero-scroll-indicator");
 
   words.forEach((word, i) => {
     setTimeout(() => word.classList.add("visible"), 200 + i * 120);
   });
 
   setTimeout(() => tagline.classList.add("visible"), 900);
-  setTimeout(() => scrollIndicator.classList.add("visible"), 1400);
 }
 
 /* ============================================
