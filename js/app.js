@@ -4,6 +4,7 @@
 
 const FRAME_COUNT = 149;
 const FRAME_SPEED = 1.0;
+const EARLY_FRAMES = 25;
 const IMAGE_SCALE = 1.0;
 const DARK_OVERLAY_ENTER = 0.50;
 const DARK_OVERLAY_LEAVE = 0.63;
@@ -269,7 +270,10 @@ function initFrameBinding() {
     scrub: true,
     onUpdate(self) {
       const accelerated = Math.min(self.progress * FRAME_SPEED, 1);
-      const index = Math.min(Math.floor(accelerated * FRAME_COUNT), FRAME_COUNT - 1);
+      const index = Math.min(
+        EARLY_FRAMES + Math.floor(accelerated * (FRAME_COUNT - EARLY_FRAMES)),
+        FRAME_COUNT - 1
+      );
       if (index !== currentFrame) {
         currentFrame = index;
         if (index % 20 === 0 && frames[index]) sampleBgColor(frames[index]);
@@ -296,6 +300,15 @@ function initHeroTransition() {
       // Canvas wipes in: complete when hero is 50% off screen
       const wipeProgress = Math.min(1, p * 2);
       canvasWrap.style.clipPath = `circle(${wipeProgress * 150}% at 50% 50%)`;
+      // After wipe (p > 0.5): advance first 25 frames
+      if (p > 0.5) {
+        const earlyP = (p - 0.5) * 2;
+        const earlyIndex = Math.min(Math.floor(earlyP * EARLY_FRAMES), EARLY_FRAMES - 1);
+        if (earlyIndex !== currentFrame) {
+          currentFrame = earlyIndex;
+          requestAnimationFrame(() => drawFrame(currentFrame));
+        }
+      }
     },
   });
 }

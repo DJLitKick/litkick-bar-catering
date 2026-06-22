@@ -149,12 +149,12 @@ body {
 
 .hero-standalone {
   position: relative;
-  height: 65vh;
+  height: 70vh;
   background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 7rem 6vw 6rem;
+  padding: 8.5rem 6vw 6rem;
   overflow: hidden;
   z-index: 10;
 }
@@ -221,7 +221,7 @@ body {
 
 .hero-scroll-indicator {
   position: absolute;
-  bottom: 2.5rem;
+  bottom: 2rem;
   left: 6vw;
   display: flex;
   align-items: center;
@@ -519,7 +519,7 @@ body {
   .site-header { padding: 1.2rem 1.5rem; }
   .header-nav { gap: 1.5rem; }
 
-  .hero-standalone { padding: 5rem 5vw 6rem; height: 80vh; }
+  .hero-standalone { padding: 6rem 5vw 6rem; height: 85vh; }
   .hero-content { max-width: 90vw; }
 
   #scroll-container { height: 550vh; }
