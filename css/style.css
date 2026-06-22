@@ -154,7 +154,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 6vw;
+  padding: 5rem 6vw 0;
   overflow: hidden;
   z-index: 10;
 }
@@ -519,7 +519,7 @@ body {
   .site-header { padding: 1.2rem 1.5rem; }
   .header-nav { gap: 1.5rem; }
 
-  .hero-standalone { padding: 0 5vw; height: 80vh; }
+  .hero-standalone { padding: 4rem 5vw 0; height: 80vh; }
   .hero-content { max-width: 90vw; }
 
   #scroll-container { height: 550vh; }
