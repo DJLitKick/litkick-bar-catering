@@ -2,9 +2,9 @@
    LitKick Bar Catering — Scroll Experience
    ============================================ */
 
-const FRAME_COUNT = 151;
+const FRAME_COUNT = 149;
 const FRAME_SPEED = 1.0;
-const IMAGE_SCALE = 0.88;
+const IMAGE_SCALE = 1.0;
 const DARK_OVERLAY_ENTER = 0.50;
 const DARK_OVERLAY_LEAVE = 0.63;
 const MARQUEE_ENTER = 0.28;
@@ -167,7 +167,7 @@ function positionSections() {
     const enter = parseFloat(section.dataset.enter) / 100;
     const leave = parseFloat(section.dataset.leave) / 100;
     const mid = (enter + leave) / 2;
-    section.style.top = mid * totalH - window.innerHeight / 2 + "px";
+    section.style.top = mid * (totalH - window.innerHeight) + "px";
   });
 }
 

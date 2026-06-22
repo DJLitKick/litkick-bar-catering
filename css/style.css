@@ -149,7 +149,7 @@ body {
 
 .hero-standalone {
   position: relative;
-  height: 100vh;
+  height: 65vh;
   background: var(--bg);
   display: flex;
   align-items: center;
@@ -519,7 +519,7 @@ body {
   .site-header { padding: 1.2rem 1.5rem; }
   .header-nav { gap: 1.5rem; }
 
-  .hero-standalone { padding: 0 5vw; }
+  .hero-standalone { padding: 0 5vw; height: 80vh; }
   .hero-content { max-width: 90vw; }
 
   #scroll-container { height: 550vh; }
