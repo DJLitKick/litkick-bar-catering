@@ -152,10 +152,9 @@ body {
   height: 70vh;
   background: var(--bg);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   padding: 8.5rem 6vw 6rem;
-  overflow: hidden;
   z-index: 10;
 }
 

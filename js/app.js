@@ -62,7 +62,7 @@ function drawFrame(index) {
   const ch = window.innerHeight;
   const iw = img.naturalWidth;
   const ih = img.naturalHeight;
-  const scale = Math.max(cw / iw, ch / ih) * IMAGE_SCALE;
+  const scale = Math.min(cw / iw, ch / ih) * IMAGE_SCALE;
   const dw = iw * scale;
   const dh = ih * scale;
   const dx = (cw - dw) / 2;
